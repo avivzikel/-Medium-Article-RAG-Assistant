@@ -1,9 +1,9 @@
 from app.config import settings
 from app.rag.embeddings import EmbeddingClient
 from app.rag.pinecone_client import PineconeService
+from typing import Optional
 
-
-def retrieve_context(question: str, top_k: int | None = None) -> list[dict]:
+def retrieve_context(question: str, top_k: Optional[int] = None) -> list[dict]:
     top_k = top_k or settings.top_k
 
     embedding_client = EmbeddingClient()
@@ -24,12 +24,14 @@ def retrieve_context(question: str, top_k: int | None = None) -> list[dict]:
 
         contexts.append(
             {
-                'article_id': article_id,
-                'title': str(metadata.get('title', '')),
-                'chunk': str(metadata.get('chunk_text', '')),
-                'score': float(match.get('score', 0.0)),
+                "article_id": article_id,
+                "title": str(metadata.get("title", "")),
+                "authors": str(metadata.get("authors", "")),
+                "tags": str(metadata.get("tags", "")),
+                "chunk": str(metadata.get("chunk_text", "")),
+                "score": float(match.get("score", 0.0)),
             }
-        )
+)
 
         if len(contexts) >= top_k:
             break

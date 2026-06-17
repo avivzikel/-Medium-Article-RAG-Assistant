@@ -1,16 +1,17 @@
 import csv
 from pathlib import Path
+from typing import Optional
 
 REQUIRED_COLUMNS = {'title', 'text', 'url', 'authors', 'timestamp', 'tags'}
 
 
-def load_articles(csv_path: str, limit: int | None = None) -> list[dict]:
+def load_articles(csv_path: str, limit: Optional[int] = None) -> list[dict]:
     path = Path(csv_path)
     if not path.exists():
         raise FileNotFoundError(f'CSV file not found: {csv_path}')
 
     articles: list[dict] = []
-    with path.open('r', encoding='utf-8', newline='') as handle:
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
         if not reader.fieldnames or not REQUIRED_COLUMNS.issubset(set(reader.fieldnames)):
             raise ValueError(f'CSV must include columns: {sorted(REQUIRED_COLUMNS)}')
