@@ -3,4 +3,4 @@
 __pycache__/
 .pytest_cache/
 data/*.csv
-api_test_outputs/
+api_test_outputs/*.json
