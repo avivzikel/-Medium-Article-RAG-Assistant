@@ -12,7 +12,7 @@ class ResponseGenerator:
     def generate(self, system_prompt: str, user_prompt: str) -> str:
         response = self.client.chat.completions.create(
             model=settings.chat_model,
-            temperature=0,
+            temperature=1,
             messages=[
                 {'role': 'system', 'content': system_prompt},
                 {'role': 'user', 'content': user_prompt},

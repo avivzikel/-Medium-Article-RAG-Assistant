@@ -1,0 +1,5 @@
+﻿"experiment","namespace","chunk_size","overlap_ratio","top_k","article_limit","batch_size","mode","loaded_articles","created_chunks","estimated_batches"
+"exp-384-015-top7","exp-384-015","384","0.15","7","500","64","dry-run","500","1739","28"
+"exp-512-020-top7","exp-512-020","512","0.20","7","500","64","dry-run","500","1388","22"
+"exp-768-020-top7","exp-768-020","768","0.20","7","500","64","dry-run","500","983","16"
+"exp-512-020-top10","exp-512-020-top10","512","0.20","10","500","64","dry-run","500","1388","22"
