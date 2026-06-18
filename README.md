@@ -11,6 +11,31 @@ FastAPI Retrieval-Augmented Generation (RAG) assistant that answers questions **
 - **Generation**: Feeds system prompt (context-only constraint) + user prompt (question + context) → LLM generates answer.
 - **API**: FastAPI endpoints for prompting and stats.
 
+
+## 🧠 Live Demo (Streamlit UI)
+
+You can interact with the full RAG system using the deployed UI:
+
+👉 https://aviv-ind-assignment.streamlit.app/
+
+👉 Vercel link in https://medium-article-rag-assistant-five.vercel.app/
+
+### Features
+- Ask natural language questions over Medium articles dataset
+- Retrieve top-k relevant article chunks via Pinecone
+- Generate grounded answers using LLM
+- View retrieved context with scores and metadata
+- Inspect system configuration via `/api/stats`
+
+### Backend API
+The UI is connected to a FastAPI backend deployed on Vercel:
+
+- `/api/prompt` → main RAG question answering endpoint  
+- `/api/stats` → system hyperparameters (chunk size, overlap, top_k)
+
+### Architecture
+Streamlit UI → FastAPI (Vercel) → Pinecone Vector DB → LLM (ZYRANGG models)
+
 ## Tech Stack
 - **Framework**: FastAPI + Uvicorn
 - **Vector DB**: Pinecone (1536-dim vectors)
