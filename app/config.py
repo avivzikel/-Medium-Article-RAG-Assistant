@@ -19,7 +19,4 @@ class Settings(BaseSettings):
     pinecone_cloud: str = 'aws'
     pinecone_region: str = 'us-east-1'
 
-    api_base: str = 'https://medium-article-rag-assistant-five.vercel.app'
-
-
 settings = Settings()
