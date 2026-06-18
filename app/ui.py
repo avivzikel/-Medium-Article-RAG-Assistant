@@ -1,7 +1,9 @@
 import streamlit as st
 import requests
+from app.config import settings
 
-API_BASE = "https://medium-article-rag-assistant-pphwevxrq-aviv4.vercel.app/"
+API_BASE = settings.api_base  
+
 
 st.title("📚 Medium RAG Assistant")
 
